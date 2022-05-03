@@ -1,38 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Radio+Canada:wght@400;500;600;700&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Radio Canada', sans-serif;
+}
+
 .App {
-  text-align: center;
+  background: linear-gradient(to right, #6441A5, #2a0845);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.input-group {
+  width: 300px !important;
+  height: 38px;
+  padding: 0 !important;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.input-group>* {
+  box-shadow: 0 0.3rem 1rem rgba(0, 0, 0, 0.2);
+  height: 38px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.btn-custom {
+  color: white !important;
+  background: #0e0024 !important;
+  transition: 0.4s ease !important;
+}
+
+.btn-custom:hover {
+  background: white !important;
+  color: #0e0024 !important;
+}
+
+.todo {
+  width: 300px;
+}
+
+.todo> :is(span, input) {
   display: flex;
-  flex-direction: column;
+  word-wrap: break-word;
+  overflow-x: hidden;
+  width: 215.37px !important;
+  padding: 0 5px;
+}
+
+.todo {
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-between;
+  width: 300px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: #0e0024;
   color: white;
+  transition: 0.4s ease-in;
+}
+.todo .icons {
+  width: calc(300px - 215.37px);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.todo .icons>i {
+  font-size: 25px;
+  cursor: pointer;
 }
