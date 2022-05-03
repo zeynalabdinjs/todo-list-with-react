@@ -9,7 +9,7 @@ import { setData } from './store/todos';
 function App() {
   const dispatch = useDispatch();
   const [input, setInput] = useState("")
-
+  
   const handleSubmit = (e) => {
     e.preventDefault()
     if (input !== "") {

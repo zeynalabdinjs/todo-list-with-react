@@ -9,12 +9,16 @@ const Todo = ({ title, id }) => {
     const [completed, setCompleted] = useState(false)
 
     const active = completed ? "active" : ""
+
     const handleEdit = () => {
         setEdit(!edit)
-        dispatch(editData({ id, content }))
+        dispatch(editData({ content, id }))
     }
+
+
+
     return (
-        <div className={`todo ps-3 py-2 mb-1 ${active}`} onClick={(e) => setCompleted(!completed)}>
+        <div className={`todo ps-3 py-2 mb-1 ${active}`}>
             {
                 edit ? (
                     <>
@@ -27,7 +31,7 @@ const Todo = ({ title, id }) => {
                     </>
                 )
                     : (<>
-                        <span>{content}</span>
+                        <span onClick={(e) => setCompleted(!completed)}>{title}</span>
                         <div className="icons">
                             <i className='bx bx-x me-2 text-danger' onClick={(e) => dispatch(removeData(id))}></i>
                             <i className='bx bx-pencil text-success' onClick={() => setEdit(!edit)}></i>

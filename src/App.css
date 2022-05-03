@@ -54,12 +54,29 @@
   width: 300px;
 }
 
+.todo.active {
+  opacity: 0.6;
+}
+.todo.active span{
+  text-decoration: line-through;
+}
+
+.todo.active .icons {
+  display: none;
+}
+
 .todo> :is(span, input) {
   display: flex;
   word-wrap: break-word;
   overflow-x: hidden;
   width: 215.37px !important;
   padding: 0 5px;
+  border: none;
+  outline: none;
+}
+
+input:focus {
+  outline: none !important;
 }
 
 .todo {
@@ -85,4 +102,16 @@
 .todo .icons>i {
   font-size: 25px;
   cursor: pointer;
+}
+
+@media (max-width: 500px) {
+
+  .input-group,
+  .todo {
+    width: 90% !important;
+  }
+
+  .todo .icons {
+    width: calc(90% - 215.37px);
+  }
 }

@@ -6,20 +6,15 @@ export const todos = createSlice({
     },
     reducers: {
         setData: (state, action) => {
-            state.data.push(action.payload)
-            state.data = [...new Set(state.data)]
+            state.data.push({ "content": action.payload, "id": Math.floor(Math.random() * 98321) })
         },
         removeData: (state, action) => {
-            for (var i = 0; i < state.data.length; i++) {
-                if (state.data.indexOf(state.data[i]) === action.payload) {
-                    state.data.splice(i, 1);
-                }
-            }
+            state.data = state.data.filter(item => item.id !== action.payload)
         },
         editData: (state, action) => {
             for (var i = 0; i < state.data.length; i++) {
-                if (state.data.indexOf(state.data[i]) === action.payload.id) {
-                    state.data[i] = action.payload.content
+                if (state.data[i].id === action.payload.id) {
+                    state.data[i].content = action.payload.content
                 }
             }
         }
