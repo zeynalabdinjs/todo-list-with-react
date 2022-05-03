@@ -8,8 +8,25 @@
 }
 
 .App {
-  background: linear-gradient(to right, #6441A5, #2a0845);
+  background: linear-gradient(to right, #452089, #2a0845, #280a5f);
+  background-size: 450%;
+  animation: anim 8s forwards infinite ease;
 }
+
+@keyframes anim {
+  0% {
+    background-position-x: 0%;
+  }
+
+  50% {
+    background-position-x: 100%;
+  }
+
+  100% {
+    background-position-x: 0%;
+  }
+}
+
 
 .input-group {
   width: 300px !important;
@@ -56,6 +73,7 @@
   color: white;
   transition: 0.4s ease-in;
 }
+
 .todo .icons {
   width: calc(300px - 215.37px);
   display: flex;
