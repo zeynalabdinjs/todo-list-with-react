@@ -9,7 +9,6 @@ const Todo = ({ title, id }) => {
     const [completed, setCompleted] = useState(false)
 
     const active = completed ? "active" : ""
-
     const handleEdit = () => {
         setEdit(!edit)
         dispatch(editData({ content, id }))

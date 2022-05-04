@@ -54,10 +54,27 @@
   width: 300px;
 }
 
-.todo.active {
-  opacity: 0.6;
+.todo:last-child {
+  animation: toTop 0.5s forwards ease-in-out;
 }
-.todo.active span{
+
+@keyframes toTop {
+  0% {
+    opacity: 0;
+    margin-top: 200px;
+  }
+
+  100% {
+    opacity: 1;
+    margin-top: 0;
+  }
+}
+
+.todo.active {
+  background: #0e00247a;
+}
+
+.todo.active span {
   text-decoration: line-through;
 }
 

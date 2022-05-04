@@ -4,6 +4,7 @@ import Todo from './Todo'
 
 const Todolist = () => {
     const todos = useSelector(state => state.todos.data)
+    console.log(todos)
     // const [todo, setTodo] = useState([])
     // const dispatch = useDispatch()
 
