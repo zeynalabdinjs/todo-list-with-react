@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { editData, removeData } from '../store/todos'
 
@@ -13,6 +13,10 @@ const Todo = ({ title, id }) => {
         setEdit(!edit)
         dispatch(editData({ content, id }))
     }
+    useEffect(() => {
+        setContent(title)
+    }, [title])
+
 
 
 
@@ -21,7 +25,7 @@ const Todo = ({ title, id }) => {
             {
                 edit ? (
                     <>
-                        <input className='form-control' value={content} onChange={(e) => setContent(e.target.value)} />
+                        <input className='form-control' value={content} onChange={(e) => setContent(() => e.target.value)} />
                         <div className="icons">
                             <i className='bx bx-x me-2 text-danger' onClick={(e) => dispatch(removeData(id))}></i>
                             <i className='bx bx-check text-success' onClick={(e) => handleEdit()}></i>
@@ -33,7 +37,7 @@ const Todo = ({ title, id }) => {
                         <span onClick={() => setCompleted(!completed)}>{title}</span>
                         <div className="icons">
                             <i className='bx bx-x me-2 text-danger' onClick={(e) => dispatch(removeData(id))}></i>
-                            <i className='bx bx-pencil text-success' onClick={() => setEdit(!edit) && setContent(title)}></i>
+                            <i className='bx bx-pencil text-success' onClick={() => setEdit(!edit) && setContent(content)}></i>
                         </div>
                     </>
                     )
