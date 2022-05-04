@@ -9,7 +9,11 @@ export const todos = createSlice({
             state.data.push({ "content": action.payload, "id": Math.floor(Math.random() * 98321) })
         },
         removeData: (state, action) => {
-            state.data = state.data.filter(item => item.id !== action.payload)
+            for (var i = 0; i < state.data.length; i++) {
+                if (state.data[i].id === action.payload) {
+                    state.data.splice(i, 1)
+                }
+            }
         },
         editData: (state, action) => {
             for (var i = 0; i < state.data.length; i++) {
@@ -21,5 +25,5 @@ export const todos = createSlice({
     }
 })
 
-export const { setData, removeData, editData } = todos.actions;
+export const { setData, removeData, editData, equalData } = todos.actions;
 export default todos.reducer

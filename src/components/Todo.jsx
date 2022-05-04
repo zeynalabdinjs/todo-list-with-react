@@ -31,10 +31,10 @@ const Todo = ({ title, id }) => {
                     </>
                 )
                     : (<>
-                        <span onClick={(e) => setCompleted(!completed)}>{title}</span>
+                        <span onClick={() => setCompleted(!completed)}>{title}</span>
                         <div className="icons">
                             <i className='bx bx-x me-2 text-danger' onClick={(e) => dispatch(removeData(id))}></i>
-                            <i className='bx bx-pencil text-success' onClick={() => setEdit(!edit)}></i>
+                            <i className='bx bx-pencil text-success' onClick={() => setEdit(!edit) && setContent(title)}></i>
                         </div>
                     </>
                     )
